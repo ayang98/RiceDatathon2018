@@ -59,6 +59,28 @@ for i in range(rows):
 indices = np.array([range(data.shape[0])])
 training = np.hstack((np.transpose(indices), data))
 
+dictcluster = {"['proximity thunderstorm']": 11, "['scattered clouds']": 1, \
+               "['smoke']": 6, "['proximity moderate rain']": 3, "['light snow']": 7,\
+               "['moderate rain']": 8, "['light rain']": 4, "['few clouds']": 1, \
+               "['thunderstorm with drizzle']": 16, "['heavy intensity drizzle']": 4,\
+               "['heavy intensity shower rain']": 3, "['heavy intensity rain']": 3,\
+               "['thunderstorm']": 15, "['overcast clouds']": 13, "['squalls']": 14,\
+               "['drizzle']": 2, "['proximity thunderstorm with rain']": 18, "['haze']": 6,\
+               "['thunderstorm with rain']": 18, "['thunderstorm with light drizzle']": 16,\
+               "['mist']": 5, "['thunderstorm with heavy rain']": 17, "['volcanic ash']": 6,\
+               "['very heavy rain']": 3, "['broken clouds']": 1, "['sky is clear']": 13,\
+               "['dust']": 6, "['thunderstorm with light rain']": 18,\
+               "['light intensity drizzle']": 2, "['proximity shower rain']": 29,\
+               "['shower rain']": 8, "['sand']": 6, "['fog']": 5}
+
+rows = output.shape[0]
+
+for i in range(rows):
+
+	outputcluster[i] = dictcluster[str(output[i])]
+
+
+
 # print training
 # print output
 
