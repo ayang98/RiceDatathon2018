@@ -113,7 +113,7 @@ def knn(training, test, k, output):
 # print training[:-data.shape[0]/100]
 # print data[-data.shape[0]/100,:]
 
-"""
+
 b = knn(training[:-data.shape[0]/200], data[-data.shape[0]/200:], 73, output) #predicted output
 a = output[-data.shape[0]/200:] #actual output
 count = 0
@@ -123,7 +123,7 @@ for index in range(len(a)):
 	#accuracy.append(count/float(len(b)))
 
 print count/float(len(b))
-"""
+
 
 
 
@@ -166,12 +166,12 @@ for k in k_values:
 #the best k value resulting from the previous analysis was k = 73.
 #Going to modify knn to verify that at least one of the top 3 closest neighbors is the actual prediction
 # def knn_modified(training, test, k, output):
-# 	
+#
 # 	training = training data in the form of a numpy matrix where each row represents an entry of data
 # 	test = numpy matrix of data to be tested for outcome knn
 # 	k = k nearest neighbors
 # 	output = corresponding numpy outcome array to each row of training data
-# 	
+#
 # 	predicted = [] #the matrix holding the predicted outcomes using knn
 # 	for array1 in test:
 # 		outcomes = []
