@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from collections import Counter
 
 df1 = pd.read_csv("pressure.csv")
 data1 = df1[['Houston']]
@@ -18,8 +19,8 @@ data4 = df4[['Houston']]
 data4 = np.array(data4)
 
 
-final = np.hstack(np.array([data1, data2, data3, data4]))
+training = np.hstack(np.array([data1, data2, data3, data4]))
 
-final = final[1:, :]
+training = training[1:, :]
 
 print final
