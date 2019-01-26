@@ -94,10 +94,10 @@ def knn(training, test, k, output):
 
 
 #Creating testing/graph
-#Training data is 95% of the values in dataset; testing data is last 5%
+#Training data is 99.5% of the values in dataset; testing data is last .5%
 k_values = range(3,154,10)
 accuracy = []
-a = output[-data.shape[0]/200:] #actually results of the last 5% to be compared for accuracy of prediction
+a = output[-data.shape[0]/200:] #actually results of the last .5% to be compared for accuracy of prediction
 for k in k_values:
 	b = knn(training[:-data.shape[0]/200], data[-data.shape[0]/200:], k, output)
 	count = 0
