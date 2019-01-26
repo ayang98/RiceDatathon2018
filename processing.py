@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from collections import Counter
+from collections import Counter 
 
 df1 = pd.read_csv("pressure.csv")
 data1 = df1[['Houston']]
@@ -23,4 +23,24 @@ training = np.hstack(np.array([data1, data2, data3, data4]))
 
 training = training[1:, :]
 
-print final
+#print final
+
+
+df5 = pd.read_csv("weather_description.csv")
+data5 = df5[['Houston']]
+data5 = np.array(data5)
+
+output = data5[1:,:]
+
+
+list1 = []
+
+for element in output:
+	list1.append(str(element))
+
+ print (len(set(list1))
+
+
+
+
+
