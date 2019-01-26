@@ -35,6 +35,8 @@ data5 = np.array(data5)
 
 output = data5[1:,:]
 
+print(output)
+
 
 list1 = []
 
@@ -44,16 +46,13 @@ for element in output:
 
 unique = list(set(list1))
 
-
-dict1 = {}
-for i in range(len(unique)):
-	dict1[unique[i]] = i
-
 rows = output.shape[0]
 
+"""
 for i in range(rows):
 
 	output[i,:] = dict1[str(output[i,:])]
+"""
 
 
 indices = np.array([range(data.shape[0])])
@@ -77,8 +76,9 @@ rows = output.shape[0]
 
 for i in range(rows):
 
-	outputcluster[i] = dictcluster[str(output[i])]
+	output[i,:] = dictcluster[str(output[i,:])]
 
+#print output
 
 
 # print training
@@ -113,6 +113,35 @@ def knn(training, test, k, output):
 # print training[:-data.shape[0]/100]
 # print data[-data.shape[0]/100,:]
 
+"""
+b = knn(training[:-data.shape[0]/200], data[-data.shape[0]/200:], 73, output) #predicted output
+a = output[-data.shape[0]/200:] #actual output
+count = 0
+for index in range(len(a)):
+	if a[index] == b[index]:
+		count += 1
+	#accuracy.append(count/float(len(b)))
+
+print count/float(len(b))
+"""
+
+
+
+#Training data is 99.5% of the values in dataset; testing data is last .5%
+k_values = range(3,154,10)
+accuracy = []
+a = output[-data.shape[0]/200:] #actually results of the last .5% to be compared for accuracy of prediction
+for k in k_values:
+	b = knn(training[:-data.shape[0]/200], data[-data.shape[0]/200:], k, output)
+	count = 0
+	for index in range(len(a)):
+		if a[index] == b[index]:
+			count += 1
+	accuracy.append(count/float(len(b)))
+	print count/float(len(b))
+
+
+
 
 
 #Creating testing/graph
@@ -137,12 +166,12 @@ def knn(training, test, k, output):
 #the best k value resulting from the previous analysis was k = 73.
 #Going to modify knn to verify that at least one of the top 3 closest neighbors is the actual prediction
 # def knn_modified(training, test, k, output):
-# 	"""
+# 	
 # 	training = training data in the form of a numpy matrix where each row represents an entry of data
 # 	test = numpy matrix of data to be tested for outcome knn
 # 	k = k nearest neighbors
 # 	output = corresponding numpy outcome array to each row of training data
-# 	"""
+# 	
 # 	predicted = [] #the matrix holding the predicted outcomes using knn
 # 	for array1 in test:
 # 		outcomes = []
