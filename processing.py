@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from collections import Counter 
+from collections import Counter
 
 df1 = pd.read_csv("pressure.csv")
 data1 = df1[['Houston']]
@@ -46,9 +46,6 @@ dict1 = {}
 for i in range(len(unique)):
 	dict1[unique[i]] = i
 
-
-print dict1
-
 rows = output.shape[0]
 
 for i in range(rows):
@@ -56,17 +53,11 @@ for i in range(rows):
 	output[i,:] = dict1[str(output[i,:])]
 
 
+indices = np.array([range(training.shape[0])])
+X = np.hstack((np.transpose(indices), training))
 
-X = training
 y = output
-
-
 
 
 print X
 print y
-
-
-
-
-
