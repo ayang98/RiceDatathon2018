@@ -38,7 +38,33 @@ list1 = []
 for element in output:
 	list1.append(str(element))
 
- print (len(set(list1))
+
+unique = list(set(list1))
+
+
+dict1 = {}
+for i in range(len(unique)):
+	dict1[unique[i]] = i
+
+
+print dict1
+
+rows = output.shape[0]
+
+for i in range(rows):
+
+	output[i,:] = dict1[str(output[i,:])]
+
+
+
+X = training
+y = output
+
+
+
+
+print X
+print y
 
 
 
