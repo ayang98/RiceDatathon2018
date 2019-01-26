@@ -23,4 +23,3 @@ final = np.hstack(np.array([data1, data2, data3, data4]))
 final = final[1:, :]
 
 print final
-
