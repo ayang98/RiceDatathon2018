@@ -1,2 +1,2 @@
-# RiceDatathon2018
-some data project
+# Weather Prediction
+KNN and Logisitic Regression Algorithms for Predicting Weather
